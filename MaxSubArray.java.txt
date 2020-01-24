@@ -1,0 +1,29 @@
+public class Solution{	
+	
+public static int maxSubarrayProduct(int arr[],int n){
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Don't print the output.
+	 	 * Taking input and print is handled automatically.
+		*/
+		int max=arr[n-1];
+    int min =arr[n-1];
+    
+    int omax=max;
+    
+    for(int i=arr.length-2;i>=0;i--){
+        int f1=arr[i];
+        int f2=max*arr[i];
+        int f3=min*arr[i];
+        
+        
+        max=Math.max(f1, Math.max(f2,f3));
+        min=Math.min(f1, Math.min(f2, f3));
+        if(omax<max){
+            omax=max;
+        }
+    }
+    return omax;
+	}
+}
